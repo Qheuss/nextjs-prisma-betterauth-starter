@@ -1,43 +1,45 @@
-# 🚀 Next.js Starter avec Better Auth & Prisma
+# 🚀 Next.js Starter with Better Auth & Prisma
 
-Un starter moderne et production-ready pour démarrer rapidement vos projets Next.js avec une authentification complète.
+A modern and production-ready starter to quickly launch your Next.js projects with complete authentication.
 
-## ✨ Fonctionnalités
+[FR explanations](./readmefr.md)
 
-- **Next.js 16** avec App Router et Turbopack
-- **Better Auth** - Authentification moderne avec:
-  - Inscription/connexion par email & mot de passe
-  - Vérification d'email
-  - Réinitialisation de mot de passe
-  - Gestion des rôles (admin/user)
-  - Sessions sécurisées
-  - Protection CSRF
-- **Prisma** - ORM type-safe avec migrations
-- **TypeScript** - Type safety complète
-- **Tailwind CSS 4** - Styling moderne
-- **PostgreSQL** - Base de données relationnelle
-- **React Compiler** - Optimisations automatiques
+## ✨ Features
 
-## 📋 Prérequis
+- **Next.js 16** with App Router and Turbopack
+- **Better Auth** - Modern authentication with:
+  - Email & password registration/login
+  - Email verification
+  - Password reset
+  - Role management (admin/user)
+  - Secure sessions
+  - CSRF protection
+- **Prisma** - Type-safe ORM with migrations
+- **TypeScript** - Complete type safety
+- **Tailwind CSS 4** - Modern styling
+- **PostgreSQL** - Relational database
+- **React Compiler** - Automatic optimizations
 
-- **Node.js** 18+ ou Bun
-- **pnpm** (ou npm/yarn)
-- **PostgreSQL** (local ou distant)
-- **Docker** (optionnel, pour PostgreSQL local)
+## 📋 Prerequisites
+
+- **Node.js** 18+ or Bun
+- **pnpm** (or npm/yarn)
+- **PostgreSQL** (local or remote)
+- **Docker** (optional, for local PostgreSQL)
 
 ## 🎯 Installation
 
-### 1. Cloner et installer les dépendances
+### 1. Clone and install dependencies
 
 ```bash
-git clone <votre-repo>
+git clone <your-repo>
 cd newproject
 pnpm install
 ```
 
-### 2. Configurer la base de données
+### 2. Configure the database
 
-**Option A: PostgreSQL local avec Docker**
+**Option A: Local PostgreSQL with Docker**
 
 ```bash
 docker run -d \
@@ -49,94 +51,94 @@ docker run -d \
   postgres:latest
 ```
 
-**Option B: Base de données existante**
+**Option B: Existing database**
 
-Utilisez votre propre instance PostgreSQL.
+Use your own PostgreSQL instance.
 
-### 3. Configurer les variables d'environnement
+### 3. Configure environment variables
 
-Copiez le fichier d'exemple et modifiez les valeurs:
+Copy the example file and modify the values:
 
 ```bash
 cp example.env .env
 ```
 
-Éditez `.env`:
+Edit `.env`:
 
 ```bash
-# Base de données
+# Database
 DATABASE_URL="postgresql://postgresuser:password@localhost:5432/newprojectdb"
 
-# Better Auth - Générez un secret sécurisé
-BETTER_AUTH_SECRET="votre-secret-genere-avec-openssl"
+# Better Auth - Generate a secure secret
+BETTER_AUTH_SECRET="your-secret-generated-with-openssl"
 
-# URL de l'application
+# Application URL
 BETTER_AUTH_URL="http://localhost:3000"
 
-# Environnement
+# Environment
 NODE_ENV="development"
 ```
 
-**Générer un secret sécurisé:**
+**Generate a secure secret:**
 
 ```bash
 openssl rand -base64 32
 ```
 
-### 4. Initialiser la base de données
+### 4. Initialize the database
 
 ```bash
 pnpm prisma migrate dev
 ```
 
-Cette commande:
+This command:
 
-- Crée les tables dans votre base de données
-- Génère le client Prisma typé
-- Applique toutes les migrations
+- Creates tables in your database
+- Generates the typed Prisma client
+- Applies all migrations
 
-### 5. Lancer le serveur de développement
+### 5. Start the development server
 
 ```bash
 pnpm dev
 ```
 
-Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🗂️ Structure du projet
+## 🗂️ Project structure
 
 ```
 newproject/
 ├── prisma/
-│   ├── schema.prisma          # Schéma de la base de données
-│   └── migrations/            # Historique des migrations
+│   ├── schema.prisma          # Database schema
+│   └── migrations/            # Migration history
 ├── src/
-│   ├── app/                   # Routes Next.js (App Router)
-│   │   ├── page.tsx          # Page d'accueil
-│   │   ├── login/            # Page de connexion
-│   │   ├── flow/             # Page protégée (exemple)
-│   │   └── api/auth/         # Endpoints Better Auth
+│   ├── app/                   # Next.js routes (App Router)
+│   │   ├── page.tsx          # Home page
+│   │   ├── login/            # Login page
+│   │   ├── flow/             # Protected page (example)
+│   │   └── api/auth/         # Better Auth endpoints
 │   ├── auth/
-│   │   └── permissions.ts    # Configuration des rôles
+│   │   └── permissions.ts    # Role configuration
 │   ├── lib/
-│   │   ├── auth.ts           # Configuration Better Auth
-│   │   ├── auth-client.ts    # Client Better Auth (React)
-│   │   ├── prisma.ts         # Instance Prisma
-│   │   └── email.ts          # Service d'envoi d'emails
+│   │   ├── auth.ts           # Better Auth configuration
+│   │   ├── auth-client.ts    # Better Auth client (React)
+│   │   ├── prisma.ts         # Prisma instance
+│   │   └── email.ts          # Email sending service
 │   ├── utils/
-│   │   └── sessionWithHeaders.ts  # Helper pour les sessions server-side
-│   └── env.ts                # Validation des variables d'environnement (Zod)
+│   │   └── sessionWithHeaders.ts  # Helper for server-side sessions
+│   └── env.ts                # Environment variables validation (Zod)
 └── package.json
 ```
 
-## 🔐 Authentification
+## 🔐 Authentication
 
-### Pages disponibles
+### Available pages
 
-- `/login` - Inscription et connexion
-- `/flow` - Page protégée (exemple)
+- `/login` - Registration and login
+- `/flow` - Protected page (example)
 
-### Utilisation côté client
+### Client-side usage
 
 ```tsx
 'use client';
@@ -145,25 +147,25 @@ import { signIn, signUp, signOut, useSession } from '@/lib/auth-client';
 export default function MyComponent() {
   const { data: session } = useSession();
 
-  // Inscription
+  // Registration
   await signUp.email({
     email: 'user@example.com',
     password: 'securepassword',
     name: 'John Doe',
   });
 
-  // Connexion
+  // Login
   await signIn.email({
     email: 'user@example.com',
     password: 'securepassword',
   });
 
-  // Déconnexion
+  // Logout
   await signOut();
 }
 ```
 
-### Utilisation côté serveur
+### Server-side usage
 
 ```tsx
 import { sessionWithHeaders } from '@/utils/sessionWithHeaders';
@@ -175,95 +177,95 @@ export default async function ServerPage() {
     redirect('/login');
   }
 
-  return <div>Bonjour {session.user.name}</div>;
+  return <div>Hello {session.user.name}</div>;
 }
 ```
 
-## 📦 Commandes disponibles
+## 📦 Available commands
 
 ```bash
-# Développement
-pnpm dev                    # Lance le serveur de dev avec Turbopack
+# Development
+pnpm dev                    # Start dev server with Turbopack
 
 # Build
-pnpm build                  # Build de production
-pnpm start                  # Lance le serveur de production
+pnpm build                  # Production build
+pnpm start                  # Start production server
 
-# Base de données
-pnpm prisma migrate dev     # Crée et applique une migration
-pnpm prisma studio          # Interface visuelle pour la BD
-pnpm prisma generate        # Génère le client Prisma
+# Database
+pnpm prisma migrate dev     # Create and apply migration
+pnpm prisma studio          # Visual database interface
+pnpm prisma generate        # Generate Prisma client
 
 # Better Auth
-npx @better-auth/cli generate  # Génère les types après ajout de plugins
+npx @better-auth/cli generate  # Generate types after adding plugins
 
 # Linting
-pnpm lint                   # Vérifie le code avec ESLint
+pnpm lint                   # Check code with ESLint
 ```
 
-## 🎨 Personnalisation
+## 🎨 Customization
 
-### Ajouter des modèles Prisma
+### Add Prisma models
 
-1. Modifiez `prisma/schema.prisma`
-2. Créez une migration: `pnpm prisma migrate dev --name description`
-3. Le client Prisma sera automatiquement régénéré
+1. Modify `prisma/schema.prisma`
+2. Create a migration: `pnpm prisma migrate dev --name description`
+3. The Prisma client will be automatically regenerated
 
-### Ajouter des plugins Better Auth
+### Add Better Auth plugins
 
-Better Auth propose de nombreux plugins: OAuth (Google, GitHub, etc.), 2FA, etc.
+Better Auth offers many plugins: OAuth (Google, GitHub, etc.), 2FA, etc.
 
 ```bash
-# Installer un plugin
+# Install a plugin
 pnpm add @better-auth/plugin-name
 
-# Générer les types
+# Generate types
 npx @better-auth/cli generate
 ```
 
-Consultez la [documentation Better Auth](https://www.better-auth.com/docs/plugins/overview).
+See [Better Auth documentation](https://www.better-auth.com/docs/plugins/overview).
 
-### Configuration de l'email
+### Email configuration
 
-Actuellement, le service d'email est un placeholder dans `src/lib/email.ts`.
+Currently, the email service is a placeholder in `src/lib/email.ts`.
 
-Intégrez un service comme:
+Integrate a service such as:
 
-- **Resend** (recommandé)
+- **Resend** (recommended)
 - **SendGrid**
 - **Mailgun**
 - **AWS SES**
 
 ## 🔒 Production
 
-### Variables d'environnement
+### Environment variables
 
-En production, configurez:
+In production, configure:
 
 ```bash
-DATABASE_URL="votre-url-de-production"
-BETTER_AUTH_SECRET="secret-long-et-aleatoire"
-BETTER_AUTH_URL="https://votredomaine.com"
+DATABASE_URL="your-production-url"
+BETTER_AUTH_SECRET="long-and-random-secret"
+BETTER_AUTH_URL="https://yourdomain.com"
 NODE_ENV="production"
 ```
 
-### Sécurité
+### Security
 
-- ✅ CSRF protection active en production
-- ✅ Sessions sécurisées
-- ✅ Mots de passe hashés avec bcrypt
-- ✅ Variables d'environnement validées avec Zod
-- ⚠️ Configurez votre service d'email pour la production
-- ⚠️ Utilisez HTTPS en production
+- ✅ CSRF protection active in production
+- ✅ Secure sessions
+- ✅ Passwords hashed with bcrypt
+- ✅ Environment variables validated with Zod
+- ⚠️ Configure your email service for production
+- ⚠️ Use HTTPS in production
 
-## 🤝 Contribution
+## 🤝 Contributing
 
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une PR.
+Contributions are welcome! Feel free to open an issue or a PR.
 
-## 📄 Licence
+## 📄 License
 
 MIT
 
 ---
 
-**Démarrez votre projet en 5 minutes** 🚀
+**Start your project in 5 minutes** 🚀
