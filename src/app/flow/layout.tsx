@@ -8,7 +8,7 @@ export default async function WorkspaceLayout({
   children: ReactNode;
 }) {
   if (!(await sessionwithHeaders())) {
-    redirect('/login');
+    redirect('/sign-in');
   }
 
   return (
