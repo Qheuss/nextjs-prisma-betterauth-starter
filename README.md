@@ -223,7 +223,7 @@ pnpm add @better-auth/plugin-name
 npx @better-auth/cli generate
 ```
 
-See [Better Auth documentation](https://www.better-auth.com/docs/plugins/overview).
+See [Better Auth documentation]([https://www.better-auth.com/docs/plugins/overview](https://better-auth.com/docs/introduction)).
 
 ### Email configuration
 
