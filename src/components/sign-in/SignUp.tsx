@@ -5,7 +5,6 @@ interface SignUpProps {
 export default function SignUp({ handleSubmitSignup }: SignUpProps) {
   return (
     <>
-      {' '}
       <h1 className='text-2xl font-bold'>Sign Up</h1>
       <form onSubmit={handleSubmitSignup} className='space-y-4'>
         <input

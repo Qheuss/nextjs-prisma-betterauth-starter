@@ -116,7 +116,7 @@ newproject/
 │   ├── app/                   # Next.js routes (App Router)
 │   │   ├── page.tsx          # Home page
 │   │   ├── login/            # Login page
-│   │   ├── flow/             # Protected page (example)
+│   │   ├── hub/              # Protected page (example)
 │   │   └── api/auth/         # Better Auth endpoints
 │   ├── auth/
 │   │   └── permissions.ts    # Role configuration
@@ -136,7 +136,7 @@ newproject/
 ### Available pages
 
 - `/login` - Registration and login
-- `/flow` - Protected page (example)
+- `/hub` - Protected page (example)
 
 ### Client-side usage
 

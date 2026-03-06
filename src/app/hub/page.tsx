@@ -22,12 +22,12 @@ export default function WorkspacePage() {
   const { user } = session;
 
   return (
-    <div>
+    <div className='p-8 text-center flex flex-col items-center justify-center h-screen'>
       <p>Welcome, {user.name || 'User'}!</p>
       <p>Email: {user.email}</p>
       <button
         onClick={() => signOut()}
-        className='w-full bg-white text-black font-medium rounded-md px-4 py-2 hover:bg-gray-200'
+        className='mt-5 bg-white text-black font-medium rounded-md px-4 py-2 hover:bg-gray-200 cursor-pointer'
       >
         Sign Out
       </button>

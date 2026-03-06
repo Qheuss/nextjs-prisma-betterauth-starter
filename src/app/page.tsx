@@ -3,13 +3,16 @@ import { redirect } from 'next/navigation';
 
 export default async function Home() {
   if (await sessionwithHeaders()) {
-    redirect('/flow');
+    redirect('/hub');
   }
 
   return (
-    <main className='p-8 text-center'>
+    <main className='text-center flex flex-col items-center justify-center h-screen'>
       <h1>Please login to access the app</h1>
-      <a href='/sign-in' className='btn-primary mt-4'>
+      <a
+        href='/sign-in'
+        className='mt-5 bg-white text-black font-medium rounded-md px-4 py-2 hover:bg-gray-200'
+      >
         Login
       </a>
     </main>

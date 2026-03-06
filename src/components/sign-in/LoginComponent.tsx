@@ -25,7 +25,7 @@ export default function LoginComponent() {
     if (res.error) {
       setError(res.error.message || 'Something went wrong.');
     } else {
-      redirect('/flow');
+      redirect('/hub');
     }
   }
 
@@ -43,7 +43,7 @@ export default function LoginComponent() {
     if (res.error) {
       setError(res.error.message || 'Something went wrong.');
     } else {
-      redirect('/flow');
+      redirect('/hub');
     }
   }
   return (
@@ -56,7 +56,7 @@ export default function LoginComponent() {
       )}
       <button
         onClick={() => setLoginMode(loginMode === 'login' ? 'signup' : 'login')}
-        className='mt-4 text-sm text-neutral-400 hover:underline'
+        className='mt-4 text-sm text-neutral-400 hover:underline cursor-pointer'
       >
         {loginMode === 'login' ? 'Switch to Sign Up' : 'Switch to Login'}
       </button>
